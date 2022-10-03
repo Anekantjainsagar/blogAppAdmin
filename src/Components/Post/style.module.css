@@ -1,0 +1,47 @@
+.post {
+  color: white;
+  display: flex;
+  padding: 0.8rem;
+  margin: 0.5rem 1rem 0.5rem 0.5rem;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 1rem;
+  transition: all 0.25s ease-in-out;
+}
+
+.post:hover {
+  background-color: rgb(31, 31, 31);
+}
+
+.img {
+  width: 19rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1rem;
+}
+
+.content {
+  width: 110rem;
+  margin-left: 1.25rem;
+}
+
+.content .title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.content .description {
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+  padding-left: 0.35rem;
+  padding-right: 0.5rem;
+}
+
+.date {
+  width: 15rem;
+  font-size: 1.5rem;
+  text-align: center;
+  padding-top: 0.35rem;
+  padding-left: 0.35rem;
+}

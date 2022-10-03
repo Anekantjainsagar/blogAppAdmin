@@ -1,0 +1,38 @@
+.msgBox {
+  background-color: #171717;
+  width: 75%;
+  margin: 1rem auto;
+  height: 83vh;
+  border-radius: 1rem;
+}
+
+.head {
+  display: grid;
+  color: white;
+  background-color: #b8663e;
+  padding: 0.45rem;
+  grid-template-columns: 16% 30% 53%;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.name,
+.mail,
+.msg {
+  font-weight: 600;
+  font-size: 1.9rem;
+}
+
+.msgsDisplay {
+  overflow-y: scroll;
+  height: 83%;
+}
+
+.msgsDisplay::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+.msgsDisplay::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 5rem;
+}

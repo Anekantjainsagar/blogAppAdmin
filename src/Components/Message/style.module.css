@@ -1,0 +1,23 @@
+.head {
+  display: grid;
+  color: white;
+  padding: 1.1rem;
+  grid-template-columns: 16% 30% 53%;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+  margin: 0.5rem;
+  border: 0.1px solid rgb(99, 99, 99);
+  border-radius: 5rem;
+  transition: all 0.25s ease-in-out;
+}
+
+.head:hover {
+  background-color: rgb(37, 37, 37);
+}
+
+.name,
+.mail,
+.msg {
+  font-size: 1.7rem;
+}

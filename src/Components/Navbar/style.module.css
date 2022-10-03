@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 2rem;
+  background-color: #171717;
+  color: #fff;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.navLinks a {
+  color: #fff;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 2.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.logo:hover {
+  color: white;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  margin-left: 5rem;
+}
+
+.menu li:hover {
+  border-radius: 5px;
+  color: white;
+}
+.menu li {
+  transition: 0.3s ease;
+  padding: 5px 14px;
+  color: rgb(126, 126, 126);
+}
+
+.menu li a {
+  font-size: 1.6rem;
+}
+/* DROPDOWN MENU */
+
+input[type="checkbox"] {
+  display: none;
+}
+/*HAMBURGER MENU*/
+.hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+}
+
+.searchBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  width: 95%;
+  display: inline-block;
+  border-left: none;
+  font-family: Arial, Helvetica, sans-serif;
+  border-right: none;
+  border-top: none;
+  font-size: 17px;
+  color: white;
+  border-bottom: 1px solid #fff;
+  padding-left: 0.5rem;
+  outline: none;
+  background-color: transparent;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+  .logo {
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  .searchBar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .searchBar .search {
+    width: 95%;
+    font-size: 1.9rem;
+    color: white;
+    padding-left: 0.5rem;
+    padding-bottom: 0.1rem;
+    outline: none;
+  }
+
+  .searchBar .icon {
+    margin-top: 0.5rem;
+  }
+  .menu {
+    display: none;
+    position: absolute;
+    background-color: #171717;
+    left: 100%;
+    width: 100%;
+    z-index: 100;
+    left: 0;
+    text-align: center;
+    top: 99%;
+    padding: 1rem 0;
+  }
+
+  .menu li:hover {
+    border-radius: 5px;
+    color: white;
+  }
+  .menu li {
+    transition: 0.3s ease;
+    padding: 1rem 0;
+  }
+
+  .menu li a {
+    font-size: 2.15rem;
+  }
+
+  input[type="checkbox"]:checked ~ .menu {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

@@ -1,0 +1,56 @@
+.mainBox {
+  background-color: #f5f5f5;
+  padding: 0.25rem 0;
+}
+
+.postsDisplay {
+  background-color: #171717;
+  width: 75%;
+  margin: 0.5rem auto;
+  display: flex;
+  border-radius: 1rem;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2.65rem;
+  text-align: center;
+  color: white;
+  padding: 0.5rem 0;
+  font-weight: 600;
+}
+
+.container {
+  height: 40vh;
+  overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  border-radius: 5rem;
+}
+
+.readMore {
+  background-color: #b8663e;
+  color: white;
+  font-size: 1.8rem;
+  width: 13%;
+  padding: 0 1.25rem;
+  outline: none;
+  border: 2px solid transparent;
+  margin: 1rem auto;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5rem;
+  transition: all 0.25s ease-in-out;
+}
+
+.readMore:hover {
+  background-color: white;
+  border: 2px solid #b8663e;
+  color: #b8663e;
+}
