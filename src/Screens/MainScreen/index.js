@@ -4,7 +4,6 @@ import Post from "../../Components/Post/index";
 import styles from "./style.module.css";
 
 const MainScreen = ({ posts, page, setPage, getBlogs, searchVal }) => {
-  console.log(searchVal);
   return (
     <div className={styles.mainBox}>
       <AddPost getBlogs={getBlogs} />
