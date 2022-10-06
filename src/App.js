@@ -12,15 +12,19 @@ function App() {
   const [page, setPage] = useState(1);
   const [messages, setMessages] = useState([]);
   const [searchVal, setSearchVal] = useState();
+  const [loading, setLoading] = useState(false);
 
   const getBlogs = () => {
+    setLoading(true);
     axios
       .get(`${BASE_URL}/getBlog?page=${page}&size=${page * 10}`)
       .then((res) => {
         setPosts(res.data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
   };
 
@@ -53,6 +57,7 @@ function App() {
               setPage={setPage}
               getBlogs={getBlogs}
               searchVal={searchVal}
+              loading={loading}
             />
           }
         />
