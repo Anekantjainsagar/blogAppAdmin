@@ -16,9 +16,24 @@ const Footer = () => {
         </Link>
         <p className={styles.para}>© Copyright ©2022 All rights reserved</p>
         <div>
-          <AiOutlineInstagram style={{ marginRight: "1rem" }} size={25} />
-          <AiFillFacebook style={{ marginRight: "1rem" }} size={25} />
-          <AiFillLinkedin style={{ marginRight: "1rem" }} size={25} />
+          <AiOutlineInstagram
+            style={{ marginRight: "1rem" }}
+            size={25}
+            onClick={() =>
+              window.open(
+                "https://instagram.com/prernapatil101?igshid=YmMyMTA2M2Y="
+              )
+            }
+          />
+          <AiFillFacebook
+            style={{ marginRight: "1rem" }}
+            size={25}
+            onClick={() =>
+              window.open(
+                "https://www.facebook.com/profile.php?id=100007956285039"
+              )
+            }
+          />
         </div>
       </div>
     </>
