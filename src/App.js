@@ -19,7 +19,6 @@ function App() {
     axios
       .get(`${BASE_URL}/getBlog?page=${page}&size=${page * 10}`)
       .then((res) => {
-        console.log(res)
         setPosts(res.data);
         setLoading(false);
       })

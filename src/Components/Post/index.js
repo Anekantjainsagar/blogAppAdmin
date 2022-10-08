@@ -35,10 +35,6 @@ const Post = ({ date, title, description, image, id, getBlogs }) => {
 
   const updatePostData = { date, title, description, image, id };
 
-  const base64String = btoa(
-    String.fromCharCode(...new Uint8Array(image?.data))
-  );
-
   return (
     <>
       <ModelView
@@ -54,8 +50,8 @@ const Post = ({ date, title, description, image, id, getBlogs }) => {
       >
         <img
           src={
-            image?.data?.length > 0
-              ? `data:image/png;base64,${base64String}`
+            image?.includes(undefined) === false
+              ? `${image}`
               : "https://i.pinimg.com/originals/bc/b3/c5/bcb3c55a0fe768b22696132ea1185bde.jpg"
           }
           alt=""
