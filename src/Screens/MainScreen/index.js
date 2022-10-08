@@ -4,10 +4,10 @@ import Post from "../../Components/Post/index";
 import styles from "./style.module.css";
 import { Dots } from "loading-animations-react";
 
-const MainScreen = ({ posts, page, setPage, getBlogs, searchVal, loading }) => {
+const MainScreen = ({ posts, page, setPage, getBlogs, searchVal, loading,category }) => {
   return (
     <div className={styles.mainBox}>
-      <AddPost getBlogs={getBlogs} />
+      <AddPost getBlogs={getBlogs} category={category} />
       <div className={styles.postsDisplay}>
         <h1>
           Posts (
@@ -47,6 +47,7 @@ const MainScreen = ({ posts, page, setPage, getBlogs, searchVal, loading }) => {
                       getBlogs={getBlogs}
                       id={post._id}
                       image={post.image}
+                      category={post.category}
                     />
                   );
                 })}

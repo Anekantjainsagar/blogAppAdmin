@@ -13,6 +13,7 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [searchVal, setSearchVal] = useState();
   const [loading, setLoading] = useState(false);
+  const [category, setCategory] = useState([]);
 
   const getBlogs = () => {
     setLoading(true);
@@ -41,6 +42,14 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
+    axios
+      .get(`${BASE_URL}/getCategories`)
+      .then((res) => {
+        setCategory(res.data.categories);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   return (
@@ -58,10 +67,12 @@ function App() {
               getBlogs={getBlogs}
               searchVal={searchVal}
               loading={loading}
+              category={category}
             />
           }
         />
         <Route path="/messages" element={<Messages messages={messages} />} />
+        <Route path="/category" element={<Messages messages={messages} />} />
       </Routes>
       <Footer />
     </>

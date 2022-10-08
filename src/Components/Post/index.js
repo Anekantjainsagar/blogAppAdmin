@@ -5,7 +5,7 @@ import styles from "./style.module.css";
 import { AiOutlineEdit, AiFillDelete } from "react-icons/ai";
 import ModelView from "../ModelView/index";
 
-const Post = ({ date, title, description, image, id, getBlogs }) => {
+const Post = ({ date, title, description, image, id, getBlogs, category }) => {
   const [displayControls, setDisplayControls] = useState(false);
   const deleteOne = (id) => {
     axios
@@ -33,7 +33,7 @@ const Post = ({ date, title, description, image, id, getBlogs }) => {
     setIsOpen(true);
   }
 
-  const updatePostData = { date, title, description, image, id };
+  const updatePostData = { date, title, description, image, id, category };
 
   return (
     <>
@@ -58,7 +58,9 @@ const Post = ({ date, title, description, image, id, getBlogs }) => {
           className={styles.img}
         />
         <div className={styles.content}>
-          <p className={styles.title}>{title}</p>
+          <p className={styles.title}>
+            {title} {category?.length > 0 ? ": " + category : " "}
+          </p>
           <p className={styles.description}>{description.slice(0, 200)}</p>
         </div>
         <div className={styles.date}>
