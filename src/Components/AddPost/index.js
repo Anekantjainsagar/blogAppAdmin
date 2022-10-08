@@ -7,6 +7,7 @@ const AddPost = ({ getBlogs }) => {
   const [blog, setBlog] = useState({
     title: "",
     description: "",
+    image: "",
   });
 
   const addBlog = () => {
@@ -19,12 +20,19 @@ const AddPost = ({ getBlogs }) => {
         console.log(err);
       });
     getBlogs();
-    setBlog({ title: "", description: "" });
+    setBlog({ title: "", description: "", image: "" });
   };
 
   return (
     <div className={styles.box}>
       <h1>Add new post</h1>
+      <input
+        type="file"
+        placeholder="Add file"
+        className={styles.file}
+        value={blog.image}
+        onChange={(e) => setBlog({ ...blog, image: e.target.value })}
+      />
       <input
         type="text"
         placeholder="Title"

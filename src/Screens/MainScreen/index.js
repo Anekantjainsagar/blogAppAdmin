@@ -5,7 +5,6 @@ import styles from "./style.module.css";
 import { Dots } from "loading-animations-react";
 
 const MainScreen = ({ posts, page, setPage, getBlogs, searchVal, loading }) => {
-  console.log(posts?.posts);
   return (
     <div className={styles.mainBox}>
       <AddPost getBlogs={getBlogs} />
@@ -15,7 +14,9 @@ const MainScreen = ({ posts, page, setPage, getBlogs, searchVal, loading }) => {
           {searchVal
             ? posts?.posts?.filter((post) => {
                 if (searchVal) {
-                  return post.title.includes(searchVal);
+                  return post.title
+                    .toLowerCase()
+                    .includes(searchVal.toLowerCase());
                 } else {
                   return post;
                 }
@@ -29,7 +30,9 @@ const MainScreen = ({ posts, page, setPage, getBlogs, searchVal, loading }) => {
               {posts?.posts
                 ?.filter((post) => {
                   if (searchVal) {
-                    return post.title.includes(searchVal);
+                    return post.title
+                      .toLowerCase()
+                      .includes(searchVal.toLowerCase());
                   } else {
                     return post;
                   }
@@ -43,6 +46,7 @@ const MainScreen = ({ posts, page, setPage, getBlogs, searchVal, loading }) => {
                       description={post.description}
                       getBlogs={getBlogs}
                       id={post._id}
+                      image={post.image}
                     />
                   );
                 })}
