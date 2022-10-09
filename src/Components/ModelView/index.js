@@ -52,15 +52,42 @@ const ModalView = ({
         category: postData.category,
       })
       .then((response) => {
-        console.log(response);
+        if (response.data.data.modifiedCount > 0) {
+          axios
+            .put(`${BASE_URL}/removeBlogFromCategory`, {
+              blogId: id,
+              category: category,
+            })
+            .then((res) => {
+              setTimeout(() => {
+                setIsOpen(false);
+              }, 300);
+              if (res.data.data.modifiedCount > 0) {
+                axios
+                  .put(`${BASE_URL}/addBlogToCategory`, {
+                    blogId: id,
+                    category: postData.category,
+                  })
+                  .then((res) => {
+                    if (res.data.data.modifiedCount > 0) {
+                      setTimeout(() => {
+                        getBlogs();
+                      }, 300);
+                    }
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       })
       .catch((err) => {
         console.log(err);
       });
-    setTimeout(() => {
-      getBlogs();
-      setIsOpen(false);
-    }, 300);
   };
 
   return (
