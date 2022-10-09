@@ -1,0 +1,25 @@
+.inputBlock {
+  display: flex;
+  margin: 0.5rem auto;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.inputBox {
+  width: 86%;
+  font-size: 1.65rem;
+  padding: 0.25rem 1.5rem;
+  outline: none;
+  border-radius: 5rem;
+  border: none;
+}
+
+.addCategory {
+  background-color: #ff8d55;
+  color: white;
+  padding: 0.35rem 1rem;
+  outline: none;
+  border-radius: 2rem;
+  font-size: 1.5rem;
+  border: none;
+}

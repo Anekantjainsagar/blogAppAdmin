@@ -41,7 +41,6 @@ const ModalView = ({ setIsOpen, modalIsOpen, updatePostData, getBlogs }) => {
         id,
         title: postData.title,
         description: postData.description,
-        image: postData.image,
       })
       .then((response) => {
         console.log(response);

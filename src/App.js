@@ -3,6 +3,7 @@ import Messages from "./Screens/Messages";
 import Footer from "./Components/Footer/index";
 import Navbar from "./Components/Navbar/index";
 import MainScreen from "./Screens/MainScreen";
+import Category from "./Screens/Category/index";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BASE_URL from "./Utils/index";
@@ -14,6 +15,7 @@ function App() {
   const [searchVal, setSearchVal] = useState();
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([]);
+  const [categoriesSearch, setCategoriesSearch] = useState();
 
   const getBlogs = () => {
     setLoading(true);
@@ -26,6 +28,17 @@ function App() {
       .catch((err) => {
         console.log(err);
         setLoading(false);
+      });
+  };
+
+  const getCategories = () => {
+    axios
+      .get(`${BASE_URL}/getCategories`)
+      .then((res) => {
+        setCategory(res.data.categories.reverse());
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 
@@ -42,14 +55,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       });
-    axios
-      .get(`${BASE_URL}/getCategories`)
-      .then((res) => {
-        setCategory(res.data.categories);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    getCategories();
   }, []);
 
   return (
@@ -72,7 +78,17 @@ function App() {
           }
         />
         <Route path="/messages" element={<Messages messages={messages} />} />
-        <Route path="/category" element={<Messages messages={messages} />} />
+        <Route
+          path="/category"
+          element={
+            <Category
+              categoriesSearch={categoriesSearch}
+              setCategoriesSearch={setCategoriesSearch}
+              category={category}
+              getCategories={getCategories}
+            />
+          }
+        />
       </Routes>
       <Footer />
     </>

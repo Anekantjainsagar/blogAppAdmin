@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./style.module.css";
 import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Navbar = ({ setSearchVal, searchVal }) => {
   const [click, setclick] = useState(false);
@@ -22,6 +23,9 @@ const Navbar = ({ setSearchVal, searchVal }) => {
               <Link to="/">Home</Link>
             </li>
             <li>
+              <Link to="/category">Categories</Link>
+            </li>
+            <li>
               <Link to="/messages">Messages</Link>
             </li>
           </div>
@@ -37,11 +41,21 @@ const Navbar = ({ setSearchVal, searchVal }) => {
             placeholder="Search here"
             type={"text"}
           />
-          <FiSearch
-            className={styles.icon}
-            onClick={() => setclick(!click)}
-            size={25}
-          />
+          {searchVal ? (
+            <AiOutlineClose
+              className={styles.icon}
+              onClick={() => {
+                setSearchVal("");
+              }}
+              size={25}
+            />
+          ) : (
+            <FiSearch
+              className={styles.icon}
+              onClick={() => setclick(!click)}
+              size={25}
+            />
+          )}
         </div>
       </nav>
     </>
