@@ -5,7 +5,16 @@ import styles from "./style.module.css";
 import { AiOutlineEdit, AiFillDelete } from "react-icons/ai";
 import ModelView from "../ModelView/index";
 
-const Post = ({ date, title, description, image, id, getBlogs, category }) => {
+const Post = ({
+  date,
+  title,
+  description,
+  image,
+  id,
+  getBlogs,
+  category,
+  categories,
+}) => {
   const [displayControls, setDisplayControls] = useState(false);
   const deleteOne = (id) => {
     axios
@@ -32,7 +41,6 @@ const Post = ({ date, title, description, image, id, getBlogs, category }) => {
   function openModal() {
     setIsOpen(true);
   }
-
   const updatePostData = { date, title, description, image, id, category };
 
   return (
@@ -42,6 +50,7 @@ const Post = ({ date, title, description, image, id, getBlogs, category }) => {
         openModal={openModal}
         setIsOpen={setIsOpen}
         getBlogs={getBlogs}
+        categories={categories}
         updatePostData={updatePostData}
       />
       <div

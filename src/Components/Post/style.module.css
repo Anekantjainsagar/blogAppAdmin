@@ -4,6 +4,8 @@
   padding: 0.8rem;
   margin: 0.5rem 1rem 0.5rem 0.5rem;
   align-items: center;
+  object-fit: cover;
+  object-position: center;
   cursor: pointer;
   background-color: transparent;
   border-radius: 1rem;

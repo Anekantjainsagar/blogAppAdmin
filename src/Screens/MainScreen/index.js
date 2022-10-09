@@ -48,6 +48,7 @@ const MainScreen = ({ posts, page, setPage, getBlogs, searchVal, loading,categor
                       id={post._id}
                       image={post.image}
                       category={post.category}
+                      categories = {category}
                     />
                   );
                 })}
