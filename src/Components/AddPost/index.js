@@ -11,24 +11,44 @@ const AddPost = ({ getBlogs, category }) => {
   });
   const [image, setImage] = useState({});
 
+  const postCheck =
+    blog.title.length > 0 &&
+    blog.description.length > 0 &&
+    blog.category.length > 0 &&
+    image.name.length > 0;
+
   const addBlog = () => {
     const formData = new FormData();
     formData.append("image", image);
     formData.append("title", blog.title);
     formData.append("description", blog.description);
     formData.append("cat", blog.category);
-    console.log(formData);
-    axios
-      .post(`${BASE_URL}/addBlog`, formData)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    getBlogs();
-    setBlog({ title: "", description: "" });
-    setImage({});
+    if (postCheck === true) {
+      axios
+        .post(`${BASE_URL}/addBlog`, formData)
+        .then((res) => {
+          setBlog({ title: "", description: "" });
+          setImage({});
+          if (res.data.Success === true) {
+          }
+          axios
+            .put(`${BASE_URL}/addBlogToCategory`, {
+              blogId: res.data.message._id,
+              category: res.data.message.category,
+            })
+            .then((res) => {
+              if (res.data.data.modifiedCount > 0) {
+                getBlogs();
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
@@ -109,6 +129,12 @@ const AddPost = ({ getBlogs, category }) => {
             e.preventDefault();
             addBlog();
           }}
+          style={
+            postCheck === true
+              ? { backgroundColor: "#b8663e" }
+              : { backgroundColor: "grey" }
+          }
+          disabled={postCheck === true ? false : true}
         >
           Save Post
         </button>

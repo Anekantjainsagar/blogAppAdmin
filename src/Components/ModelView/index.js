@@ -13,7 +13,6 @@ const ModalView = ({
   categories,
 }) => {
   const { date, title, description, image, id, category } = updatePostData;
-  console.log(categories);
   const customStyles = {
     content: {
       top: "50%",

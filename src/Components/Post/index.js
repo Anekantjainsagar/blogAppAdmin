@@ -27,8 +27,21 @@ const Post = ({
         },
       })
       .then((response) => {
-        console.log(response);
-        getBlogs();
+        if (response.data.data.deletedCount > 0) {
+          axios
+            .put(`${BASE_URL}/removeBlogFromCategory`, {
+              blogId: id,
+              category: category,
+            })
+            .then((res) => {
+              if (res.data.data.modifiedCount > 0) {
+                getBlogs();
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       })
       .catch((err) => {
         console.log(err);
